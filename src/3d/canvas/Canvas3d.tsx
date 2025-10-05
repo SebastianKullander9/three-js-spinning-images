@@ -25,6 +25,10 @@ function Canvas3d() {
         }
     }, [texture, setTexture]);
 
+    useEffect(() => {
+        document.title = "Kinetic Images"
+    }, [])
+
     return (
         <div className="fixed w-screen h-screen inset-0 bg-white">
             <Canvas
