@@ -1,10 +1,10 @@
 # Three.js Spinning Images
 
+![Demo Screenshot](public/demo-screenshot.png)
+
 A 3D image carousel with spinning animations.
 
-Live Demo: three-js-spinning-images.vercel.app
-
-![Demo Screenshot](public/demo-screenshot.png)
+Live Demo: [three-js-spinning-images.vercel.app](https://three-js-spinning-images.vercel.app)
 
 ## Technologies Used
 
