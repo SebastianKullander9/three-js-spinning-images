@@ -26,9 +26,14 @@ function Canvas3d() {
     }, [texture, setTexture]);
 
     return (
-        <div className="fixed w-screen h-screen inset-0 bg-linear-to-bl from-gray-300 to-gray-400">
+        <div className="fixed w-screen h-screen inset-0 bg-white">
             <Canvas
-                gl={{ toneMapping: THREE.NoToneMapping }}
+                gl={{
+                    toneMapping: THREE.ACESFilmicToneMapping,
+                    toneMappingExposure: 1.2,
+                    outputColorSpace: THREE.SRGBColorSpace,
+                    localClippingEnabled: true,
+                 }}
                 
             >
                 <Camera />

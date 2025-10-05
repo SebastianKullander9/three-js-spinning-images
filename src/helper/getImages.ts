@@ -1,18 +1,17 @@
-async function getImages() {
-    const imageUrls: string[] = [];
+function getImages() {
+    const imgUrls = [
+        "/images/ancient.jpg",
+        "/images/bench.jpg",
+        "/images/boxing.jpg",
+        "/images/egypt.jpg",
+        "/images/nature.jpg",
+        "/images/skiing.jpg",
+        "/images/space.jpg",
+        "/images/nature2.jpg",
+        "/images/train.jpg",
+    ]
 
-    const apiKey = import.meta.env.VITE_NEWS_API_KEY;
-    const url = `https://newsapi.org/v2/top-headlines?language=en&pageSize=50&apiKey=${apiKey}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    data.articles.map((obj: { urlToImage: string }) => {
-        imageUrls.push(obj.urlToImage);
-    });
-
-    console.log(imageUrls)
-    return imageUrls;
+    return imgUrls;
 }
 
 export default getImages;

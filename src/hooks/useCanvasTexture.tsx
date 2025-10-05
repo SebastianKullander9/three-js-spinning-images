@@ -9,6 +9,8 @@ function useCanvasTexture(canvas: HTMLCanvasElement | null) {
 
         tex.wrapS = THREE.RepeatWrapping;
         tex.wrapT = THREE.ClampToEdgeWrapping;
+        tex.colorSpace = THREE.SRGBColorSpace;
+
 
         tex.needsUpdate = true;
         return tex;

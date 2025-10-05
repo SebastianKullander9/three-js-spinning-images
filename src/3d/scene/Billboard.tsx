@@ -21,6 +21,7 @@ function Billboard({ radius = 5, ...props }: BillboardProps) {
         const mat = new THREE.MeshBasicMaterial({
             map: texture || null,
             side: THREE.DoubleSide,
+            toneMapped: false
         });
 
         mat.onBeforeCompile = (shader) => {

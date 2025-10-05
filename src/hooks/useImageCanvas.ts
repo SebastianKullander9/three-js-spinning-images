@@ -16,38 +16,14 @@ function useImageCanvas() {
 
     useEffect(() => {
         const fetchImages = async () => {
-            const images = await getImages();
+            const images = getImages();
 
-            let validImages = images.filter((url) => url !== null && url !== undefined);
-            validImages = validImages.slice(0, 10);
-
-            console.log(`Loading ${validImages.length} images through proxy...`);
-
-            const imgObjs = await Promise.all(
-                validImages.map(async (url) => {
-                    try {
-                        const proxyUrl = `/api/proxy?url=${encodeURIComponent(url)}`;
-
-
-                        return await preloadImage({
-                            imageUrl: proxyUrl,
-                            canvasHeight: CANVAS.HEIGHT,
-                        });
-                    } catch (error) {
-                        console.error("Failed to load image:", url, error);
-                        return null;
-                    }
-                })
+            const imgObjs: ImageObject[] = await Promise.all(
+                images.map(url => preloadImage({ imageUrl: url, canvasHeight: CANVAS.HEIGHT }))
             );
 
-            const successfulImages = imgObjs.filter(
-                (img): img is ImageObject => img !== null
-            );
-
-            if (successfulImages.length > 0) {
-                const newCanvas = createCanvas(successfulImages);
-                setCanvas(newCanvas);
-            }
+            const newCanvas = createCanvas(imgObjs);
+            setCanvas(newCanvas);
         };
 
         fetchImages();
